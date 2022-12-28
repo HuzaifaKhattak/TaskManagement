@@ -42,14 +42,14 @@ class TaskManagerController {
     });
     return res.json(user);
   }
-
-  static async createUser(req, res, next) {
     // const salt = await bcrypt.genSalt(10);
     // const secPassword = await bcrypt.hash(req.body.userPassword, salt);
+  static async createUser(req, res, next) {
+
     let user = {
       userFullName: req.body.userFullName,
       userEmail: req.body.userEmail,
-      userPassword: req.body.userPassword,
+      userPassword: req.body.userEmail,
     };
 
     await User.create(user);
