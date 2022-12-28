@@ -49,7 +49,7 @@ class TaskManagerController {
     let user = {
       userFullName: req.body.userFullName,
       userEmail: req.body.userEmail,
-      userPassword: req.body.userEmail,
+      userPassword: req.body.userPassword,
     };
 
     await User.create(user);
