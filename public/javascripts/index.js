@@ -551,8 +551,8 @@ var seeAssignedTask = async () => {
     taskCompleteCard.innerHTML += `
     <div class="card custom-card-style mx-1 my-2">
       <div class="card-body" >
-        <h5 class="card-title" style="color: #008080">No Assigned Task</h5>
-        <p class="card-text" style="color: #008080">You can see your task when admin Assign to you</p>
+      <h5 class="card-title text-warning">No Complete Tasks</h5>
+      <p class="card-text" style="color: #008080">You can see your <span class="text-warning">"Completed"</span> task's  here.</p>
       </div>
   </div>
     `;
