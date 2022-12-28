@@ -500,17 +500,17 @@ var seeAssignedTask = async () => {
   taskToDoCard.innerHTML = "";
   taskInProgressCard.innerHTML = "";
   taskCompleteCard.innerHTML = "";
-  if (userAssignedTask.length == 0) {
-    taskToDoCard.style.display = "flex";
-    taskToDoCard.innerHTML += `
-    <div class="card custom-card-style mx-1 my-2">
-    <div class="card-body" >
-      <h5 class="card-title" style="color: #008080">No Assigned Task</h5>
-      <p class="card-text" style="color: #008080">You can see your task when admin Assign to you</p>
-    </div>
-  </div>
-    `;
-  }
+  // if (userAssignedTask.length == 0) {
+  //   taskToDoCard.style.display = "flex";
+  //   taskToDoCard.innerHTML += `
+  //   <div class="card custom-card-style mx-1 my-2">
+  //   <div class="card-body" >
+  //     <h5 class="card-title" style="color: #008080">No Assigned Task</h5>
+  //     <p class="card-text" style="color: #008080">You can see your task when admin Assign to you</p>
+  //   </div>
+  // </div>
+  //   `;
+  // }
   let toDotaskStatusCount = 0;
   let inProcessStatusCount = 0;
   let completeStatusCount = 0;
@@ -534,7 +534,8 @@ var seeAssignedTask = async () => {
     </div>
   </div>
     `;
-  } else if (inProcessStatusCount == 0) {
+  } 
+   if (inProcessStatusCount == 0) {
     taskInProgressCard.style.display = "flex";
     taskInProgressCard.innerHTML += `
     <div class="card custom-card-style mx-1 my-2">
@@ -544,14 +545,15 @@ var seeAssignedTask = async () => {
     </div>
   </div>
     `;
-  } else if (completeStatusCount == 0) {
+  } 
+   if (completeStatusCount == 0) {
     taskCompleteCard.style.display = "flex";
     taskCompleteCard.innerHTML += `
     <div class="card custom-card-style mx-1 my-2">
-    <div class="card-body" >
-      <h5 class="card-title" style="color: #008080">No Assigned Task</h5>
-      <p class="card-text" style="color: #008080">You can see your task when admin Assign to you</p>
-    </div>
+      <div class="card-body" >
+        <h5 class="card-title" style="color: #008080">No Assigned Task</h5>
+        <p class="card-text" style="color: #008080">You can see your task when admin Assign to you</p>
+      </div>
   </div>
     `;
   }
