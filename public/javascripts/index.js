@@ -62,7 +62,7 @@ var saveUser = async () => {
     if (emailPattern.test(userEmail)) {
       if (passwordPattern.test(userPassword)) {
         if (userPassword == userCpassword) {
-          await fetch(`http://localhost:3000/users`, {
+          await fetch(`/users`, {
             method: "post",
 
             headers: {
@@ -162,7 +162,7 @@ var userLogin = async () => {
 
   document.getElementById("msg-login").innerHTML = "";
   if (loginEmail != "" && loginPassword != "") {
-    const data = await fetch(`http://localhost:3000/user-login`, {
+    const data = await fetch(`/user-login`, {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -242,7 +242,7 @@ var logout = async () => {
 var getLogedInUser = async () => {
   if (!!authToken) {
     let cbody = document.getElementById("user-profile-card");
-    const data = await fetch(`http://localhost:3000/profile`, {
+    const data = await fetch(`/profile`, {
       headers: {
         "content-type": "application/json",
         Authorization: "Bearer " + authToken,
@@ -272,7 +272,7 @@ var getLogedInUser = async () => {
 
 var deleteUser = async () => {
   if (!!authToken) {
-    await fetch(`http://localhost:3000/remove-account`, {
+    await fetch(`/remove-account`, {
       method: "delete",
       headers: {
         "content-type": "application/json",
@@ -293,7 +293,7 @@ var adminLogin = async (e) => {
 
   document.getElementById("msg-admin-login").innerHTML = "";
   if (adminEmail != "" && adminPassword != "") {
-    const data = await fetch(`http://localhost:3000/admin-login`, {
+    const data = await fetch(`/admin-login`, {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -324,7 +324,7 @@ var adminLogin = async (e) => {
       document.getElementById("user-interface").style.display = "none";
     }
 
-    const userData = await fetch(`http://localhost:3000/users`, {
+    const userData = await fetch(`/users`, {
       method: "get",
       headers: {
         "content-type": "application/json",
@@ -352,7 +352,7 @@ var adminLogout = async () => {
 };
 
 var getAllUsers = async () => {
-  let data = await fetch(`http://localhost:3000/users`, {
+  let data = await fetch(`/users`, {
     method: "get",
     headers: {
       "content-type": "application/json",
@@ -378,7 +378,7 @@ var getAllUsers = async () => {
 };
 
 var getAllTasks = async () => {
-  let data = await fetch(`http://localhost:3000/tasks`, {
+  let data = await fetch(`/tasks`, {
     method: "get",
     headers: {
       "content-type": "application/json",
@@ -406,7 +406,7 @@ var getAllTasks = async () => {
 
 var deleteUserByAdmin = async (uId) => {
   let userId = uId;
-  await fetch(`http://localhost:3000/users/${userId}`, {
+  await fetch(`/users/${userId}`, {
     method: "delete",
   });
   getAllUsers();
@@ -414,7 +414,7 @@ var deleteUserByAdmin = async (uId) => {
 
 var deleteTask = async (tId) => {
   let taskId = tId;
-  await fetch(`http://localhost:3000/tasks/${taskId}`, {
+  await fetch(`/tasks/${taskId}`, {
     method: "delete",
   });
   getAllTasks();
@@ -431,7 +431,7 @@ var addTask = async () => {
   document.getElementById("task-description").value = "";
 
   if (taskTitle != "" && taskDescription != "" && fKey != null) {
-    await fetch(`http://localhost:3000/tasks`, {
+    await fetch(`/tasks`, {
       method: "post",
 
       headers: {
@@ -485,7 +485,7 @@ var addTask = async () => {
 };
 
 var seeAssignedTask = async () => {
-  let data = await fetch(`http://localhost:3000/assigned-user-tasks`, {
+  let data = await fetch(`/assigned-user-tasks`, {
     method: "get",
     headers: {
       Authorization: "Bearer " + authToken,
@@ -626,7 +626,7 @@ var seeAssignedTask = async () => {
 var updateStatusToDo = async (tId) => {
   let taskId = tId;
   let taskStatus = "toDo";
-  fetch(`http://localhost:3000/update-task-status/${taskId}`, {
+  fetch(`/update-task-status/${taskId}`, {
     method: "put",
     headers: {
       "content-type": "application/json",
@@ -642,7 +642,7 @@ var updateStatusToDo = async (tId) => {
 var updateStatusInProcess = async (tId) => {
   let taskId = tId;
   let taskStatus = "inProcess";
-  fetch(`http://localhost:3000/update-task-status/${taskId}`, {
+  fetch(`/update-task-status/${taskId}`, {
     method: "put",
     headers: {
       "content-type": "application/json",
@@ -658,7 +658,7 @@ var updateStatusInProcess = async (tId) => {
 var updateStatusComplete = async (tId) => {
   let taskId = tId;
   let taskStatus = "complete";
-  fetch(`http://localhost:3000/update-task-status/${taskId}`, {
+  fetch(`/update-task-status/${taskId}`, {
     method: "put",
     headers: {
       "content-type": "application/json",
@@ -677,7 +677,7 @@ var updateUser = async () => {
 
   document.getElementById("userCurrentFullName").value = "";
   document.getElementById("userCurrentEmail").value = "";
-  const data = await fetch(`http://localhost:3000/update-account`, {
+  const data = await fetch(`/update-account`, {
     method: "put",
     headers: {
       "content-type": "application/json",
