@@ -1,8 +1,155 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-a {
-  color: #00B7FF;
+body {
+  background-color: #008080;
+}
+.custom-nav {
+  background-color: #008080;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+.logo-img {
+  padding-inline: 10px;
+}
+
+
+.main {
+  width: 100%;
+  height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  width: calc(100vw - 65%);
+  height: calc(100vh - 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.login-form > form {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 10px;
+}
+
+.email-pass-div {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0px;
+}
+
+.email-pass-div > input {
+  color: #008080;
+  border: 1px solid #008080;
+  background-color: transparent;
+  padding: 10px 40px;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+.email-pass-div > label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  color: #008080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: #008080;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-sinup-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-btns {
+  border: 1px solid white;
+  color: white;
+  background-color: #008080;
+  transition: background-color 1.5s;
+}
+
+.custom-btns:hover {
+  background-color: #014747;
+  color: white;
+}
+
+.modal-background-colour {
+  background-color: white;
+}
+.signup-form {
+  width: 100%;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.custom-icons {
+  color: #008080;
+}
+
+@media screen and (max-width: 750px) {
+  .email-pass-div > input {
+    color: #008080;
+    border: 1px solid #3d4f69;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 1px 3px;
+    outline: none;
+  }
+}
+
+.custom-alert {
+  text-align: center;
+}
+.custom-width {
+  width: 100%;
+  font-weight: bold;
+}
+.profile-btn {
+  padding: 0px;
+}
+
+.admin-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-close{
+  background-color: #ccc;
+  color: #008080;
+  background:none;
+  text-align: center;
+}
+.btn-close:hover{
+  color: #014747;
+}
+.users-container-box > h1{
+  color: white;
+  margin: 0px;
+}
+.custom-icons-font-size{
+  font-size: 10px;
 }

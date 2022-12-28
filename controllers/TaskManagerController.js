@@ -14,6 +14,9 @@ const Admin = db.Admin;
 class TaskManagerController {
   constructor() {}
   //index
+  static async huzaifaTask(req, res, next) {
+    return res.render("index");
+  }
   static async userLogin(req, res, next) {
     const {loginEmail,loginPassword} = req.body;
     let user = await User.findOne({

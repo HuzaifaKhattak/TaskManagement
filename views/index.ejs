@@ -1,11 +1,628 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Task Management</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link rel="stylesheet" href="./stylesheets/adminStyle.css" />
+    <link rel="stylesheet" href="./stylesheets/usersStyle.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <nav class="navbar navbar-expand-lg navbar-dark custom-nav">
+      <div class="container-fluid">
+        <div class="logo-img">
+          <img src="./images/logo.png" alt="" />
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item pl-4">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <!-- Button trigger modal -->
+            <button
+              id="admin-login-button"
+              type="button"
+              class="btn custom-btns lgot-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#admin-login-modal"
+            >
+              Admin login
+            </button>
+
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="admin-login-modal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content modal-background-colour">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="">Admin Login</h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      X
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="msg-admin-login" class="custom-width"></div>
+                    <form id="form-submit">
+                      <div class="email-pass-div pt-2">
+                        <label class="mx-2" for="login-email"
+                          ><i class="fa fa-regular fa-envelope custom-icons"></i
+                        ></label>
+                        <input
+                          type="text"
+                          id="adminEmail"
+                          class="inputs"
+                          placeholder="Enter Your Email"
+                          value="Huzaifa123@gmail.com"
+                        />
+                      </div>
+                      <div class="email-pass-div pt-2">
+                        <label class="mx-2" for="passsword"
+                          ><i class="fa fa-regular fa-key custom-icons"></i
+                        ></label>
+                        <input
+                          type="text"
+                          id="adminPassword"
+                          class="inputs"
+                          placeholder="Enter Your Password"
+                          value="Huzaifa@12345"
+                        />
+                      </div>
+                    </form>
+                    <div class="admin-login-btn">
+                      <button
+                        class="btn custom-btns"
+                        data-bs-dismiss="modal"
+                        onclick="adminLogin(event)"
+                      >
+                        Login
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main" id="landing-page">
+      <div class="login-form">
+        <div id="msg-login" class="custom-width"></div>
+        <form id="form-submit">
+          <h2>Login</h2>
+          <div class="email-pass-div pt-2">
+            <label class="mx-2" for="login-email"
+              ><i class="fa fa-regular fa-envelope fa-lg custom-icons"></i
+            ></label>
+            <input
+              type="text"
+              id="loginEmail"
+              class="inputs"
+              placeholder="Enter Your Email"
+              value="Basit@gmail.com"
+            />
+          </div>
+          <div class="email-pass-div pt-2">
+            <label class="mx-2" for="passsword"
+              ><i class="fa fa-regular fa-key fa-lg custom-icons"></i
+            ></label>
+            <input
+              type="text"
+              id="loginPassword"
+              class="inputs"
+              placeholder="Enter Your Password"
+              value="Basit123"
+              ;
+            />
+          </div>
+          <div class="login-sinup-btns">
+            <button
+              class="btn custom-btns m-2"
+              id="login-btn-func"
+              onclick="userLogin()"
+            >
+              Login
+            </button>
+            <!-- Button trigger modal -->
+            <button
+              type="button"
+              class="btn custom-btns"
+              data-bs-toggle="modal"
+              data-bs-target="#userSignUpModal"
+            >
+              SignUp
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="userSignUpModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content modal-background-colour">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-5"
+                id="exampleModalLabel"
+                style="color: #008080"
+              >
+                SignUp
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                X
+              </button>
+            </div>
+            <div class="signup-form">
+              <div id="msg" class="custom-width"></div>
+              <form id="form-submit">
+                <div class="email-pass-div pt-2">
+                  <label class="mx-2" for="fullName"
+                    ><i class="fa fa-regular fa-user custom-icons"></i
+                  ></label>
+                  <input
+                    type="text"
+                    id="userFullName"
+                    class="inputs"
+                    placeholder="Enter Your Fullname"
+                  />
+                </div>
+                <div class="email-pass-div pt-2">
+                  <label class="mx-2" for="login-email"
+                    ><i class="fa fa-regular fa-envelope custom-icons"></i
+                  ></label>
+                  <input
+                    type="text"
+                    id="userEmail"
+                    class="inputs"
+                    placeholder="Enter Your Email"
+                  />
+                </div>
+                <div class="email-pass-div pt-2">
+                  <label class="mx-2" for="passsword"
+                    ><i class="fa fa-regular fa-key custom-icons"></i
+                  ></label>
+                  <input
+                    type="text"
+                    id="userPassword"
+                    class="inputs"
+                    placeholder="Enter Your Password"
+                  />
+                </div>
+
+                <div class="email-pass-div pt-2">
+                  <label class="mx-2" for="passsword"
+                    ><i class="fa fa-regular fa-key custom-icons"></i
+                  ></label>
+                  <input
+                    type="text"
+                    id="userCpassword"
+                    class="inputs"
+                    placeholder="Confirm Your Password"
+                  />
+                </div>
+              </form>
+              <div class="login-sinup-btns">
+                <button class="btn custom-btns m-2" onclick="saveUser()">
+                  SignUp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="users" id="user-interface">
+      <div class="welcome-users-conatiner">
+        <div class="welcome-users">
+          <div class="profile">
+            <div class="updateUserProfile">
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn custom-btns lgot-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#user-profile-update"
+              >
+                Update Profile
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="user-profile-update"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content modal-background-colour">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Modal title
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        X
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="form-submit">
+                        <div class="email-pass-div pt-2">
+                          <label class="mx-2" for="fullName"
+                            ><i class="fa fa-regular fa-user custom-icons"></i
+                          ></label>
+                          <input
+                            type="text"
+                            id="userCurrentFullName"
+                            class="inputs"
+                            placeholder="Enter Your Fullname"
+                          />
+                        </div>
+                        <div class="email-pass-div pt-2">
+                          <label class="mx-2" for="login-email"
+                            ><i
+                              class="fa fa-regular fa-envelope custom-icons"
+                            ></i
+                          ></label>
+                          <input
+                            type="text"
+                            id="userCurrentEmail"
+                            class="inputs"
+                            placeholder="Enter Your Email"
+                          />
+                        </div>
+                      </form>
+                      <div class="login-sinup-btns">
+                        <button
+                          class="btn custom-btns m-2"
+                          onclick="updateUser()"
+                        >
+                          Update
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="logout-btn">
+              <button class="btn custom-btns lgot-btn" onclick="logout()">
+                Logout
+              </button>
+            </div>
+            <div class="img">
+              <!-- Button trigger modal -->
+              <button
+                type="button"
+                class="btn profile-btn custom-btns"
+                data-bs-toggle="modal"
+                data-bs-target="#user-profile"
+                onclick="getLogedInUser()"
+              >
+                <img src="./images/avatar.png" alt="" />
+              </button>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="user-profile"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content" style="background-color: #008080">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" style="color: white">
+                        Your Profile
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                        style="color: white"
+                      >
+                        X
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div
+                        class="card custom-card-style pt-3"
+                        style="width: 100%; cursor: auto; height: 140px"
+                      >
+                        <div id="user-profile-card"></div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn custom-btns"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn custom-btns">
+                        Save changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Button trigger modal -->
+
+      <div class="users-container-box d-flex flex-column">
+        <h1>Tasks to do</h1>
+        <div
+          class="user-card-box row row-cols-1 row-cols-md-3 my-3"
+          id="user-toDo-task-card"
+        ></div>
+
+        <h1>Tasks in progress</h1>
+        <div
+          class="user-card-box row row-cols-1 row-cols-md-3"
+          id="user-inProgress-task-card"
+        ></div>
+
+        <h1>Tasks complete</h1>
+        <div
+          class="user-card-box row row-cols-1 row-cols-md-3"
+          id="user-complete-task-card"
+        ></div>
+      </div>
+    </div>
+
+    <div class="admin-container" id="admin-interface">
+      <div class="admin-content-container">
+        <div class="admin-container-btns">
+          <!-- Button users modal -->
+          <button
+            type="button"
+            class="btn custom-btns"
+            data-bs-toggle="modal"
+            data-bs-target="#get-users-modal"
+            onclick="getAllUsers()"
+          >
+            See Users
+          </button>
+
+          <!-- See users Modal -->
+          <div
+            class="modal fade"
+            id="get-users-modal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-scrollabl">
+              <div class="modal-content custom-modal">
+                <div class="modal-header" style="background-color: white">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Available Users
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    X
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="color-white">User fullname</th>
+                        <th scope="col">User email</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="users-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Button Tasks modal -->
+          <button
+            type="button"
+            class="btn custom-btns mx-2"
+            data-bs-toggle="modal"
+            data-bs-target="#get-tasks-modal"
+            onclick="getAllTasks()"
+          >
+            See Tasks
+          </button>
+
+          <!-- See Tasks Modal -->
+          <div
+            class="modal fade"
+            id="get-tasks-modal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-scrollable">
+              <div class="modal-content custom-modal">
+                <div class="modal-header" style="background-color: white">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Available Users
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    X
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Task Title</th>
+                        <th scope="col">Task Description</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Assigned to</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="task-table-body">
+                      <tr>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-logout-btn">
+            <button class="btn custom-btns" onclick="adminLogout()">
+              Logout
+            </button>
+          </div>
+        </div>
+
+        <div class="add-task-form my-2">
+          <form id="form-submit-task">
+            <div id="task-msg"></div>
+            <h2>Add Task</h2>
+            <div class="email-pass-div pt-2">
+              <label class="mx-2" for="Task Title">
+                <i class="fa fa-regular fa-briefcase fa-lg custom-icons"></i
+              ></label>
+              <input
+                type="text"
+                class="inputs"
+                placeholder="Enter Task Title"
+                id="task-title"
+              />
+            </div>
+            <div class="email-pass-div pt-2">
+              <label class="mx-2" for="Task Description"
+                ><i class="fa fa-regular fa-list-ul fa-lg custom-icons"></i
+              ></label>
+              <input
+                type="text"
+                class="inputs"
+                placeholder="Enter Task's Description"
+                id="task-description"
+              />
+            </div>
+            <div class="email-pass-div pt-2">
+              <label class="mx-2" for="task-user"
+                ><i class="fa fa-regular fa-user fa-lg custom-icons"></i
+              ></label>
+              <select
+                class="form-select form-select-sm custom-select"
+                aria-label=".form-select-sm example"
+                id="select-user"
+              >
+                <option selected>Select user</option>
+              </select>
+            </div>
+            <div class="add-task-btn">
+              <button class="btn custom-btns m-2" onclick="addTask()">
+                Add Task
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/d9c9d93627.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./javascripts/index.js"></script>
   </body>
 </html>

@@ -1,0 +1,97 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Kanit', sans-serif;
+    background-color: #008080 !important;
+}
+
+.custom-nav{
+    background-color: #008080;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.welcome-users-conatiner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.welcome-users {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    height: 80px;
+    border-radius: 10px;
+    background-color: white;
+    color: #008080;
+}
+.users{
+    background-position: center;
+    width: 100%;
+    height: calc(100vh - 56px);
+}
+
+.users-container-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-card-box{
+    width: 89%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding-left: 35px;
+}
+
+.custom-card-style{
+    background-color: transparent;
+    width: 19rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 10px 40px 0 rgb(0 0 0 / 20%), 0 20px 23px 0 rgb(0 0 0 / 19%);
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.img > img{
+    width: 40px;
+    height: 40px;
+}
+.lgot-btn{
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.btn-close{
+    background-color: #ccc;
+    color: #008080;
+    background:none;
+    text-align: center;
+  }
+.btn-close:hover{
+    color: #014747;
+  }

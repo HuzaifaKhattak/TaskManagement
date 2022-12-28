@@ -5,7 +5,7 @@ const authenticate = require('../middleware/Authenticate');
 var router = express.Router();
 
 /* GET home page. */
-
+router.get("/", TaskManagerController.huzaifaTask);
 router.post('/user-login', TaskManagerController.userLogin);
 router.get("/profile", authenticate, TaskManagerController.profile);
 router.post('/users', TaskManagerController.createUser);
