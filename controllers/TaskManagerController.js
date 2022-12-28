@@ -18,15 +18,16 @@ class TaskManagerController {
     return res.render("index");
   }
   static async userLogin(req, res, next) {
-    const loginPassword = req.body.loginPassword;
+    const {loginEmail,loginPassword} = req.body;
     let user = await User.findOne({
       where: {
-        userEmail: req.body.loginEmail,
+        userEmail: loginEmail,
+        userPassword:loginPassword,
       },
     });
 
-    const match = await bcrypt.compare(loginPassword, user.userPassword);
-    if (match && user?.dataValues) {
+    // const match = await bcrypt.compare(loginPassword, user.userPassword);
+    if (user?.dataValues) {
       const token = jwt.sign(user.dataValues, userSecret, { expiresIn: "1800s" });
       return res.json({ token ,user});
     } 
@@ -43,12 +44,12 @@ class TaskManagerController {
   }
 
   static async createUser(req, res, next) {
-    const salt = await bcrypt.genSalt(10);
-    const secPassword = await bcrypt.hash(req.body.userPassword, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const secPassword = await bcrypt.hash(req.body.userPassword, salt);
     let user = {
       userFullName: req.body.userFullName,
       userEmail: req.body.userEmail,
-      userPassword: secPassword,
+      userPassword: req.body.userPassword,
     };
 
     await User.create(user);
