@@ -18,10 +18,10 @@ class TaskManagerController {
     return res.render("index");
   }
   static async userLogin(req, res, next) {
-    const {loginEmail,loginPassword} = req.body;
+    const loginPassword = req.body.loginPassword;
     let user = await User.findOne({
       where: {
-        userEmail: loginEmail,
+        userEmail: req.body.loginEmail,
       },
     });
 
